@@ -1,0 +1,263 @@
+---
+import { Icon } from 'astro-icon/components'
+import ThemeIcon from './ThemeIcon.astro'
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const { index, about, portfolio, gallery, contact, lang } = Astro.props;
+
+---
+<header class="headerNav">
+    <div class="headerNav__logo">
+        <a href="index.html">EALEJANDROH</a>
+    </div>
+    <nav class="headerNav__nav">
+        <ul>
+            <li><a href="index.html">{index}</a></li>
+            <li><a href="about.html">{about}</a></li>
+            <li><a href="portfolio.html">{portfolio}</a></li>
+            <li><a href="gallery.html">{gallery}</a></li>
+            <li><a href="contact.html">{contact}</a></li>
+            <li class="dropdown">
+                <span class="dropbtn idioma">
+                    <span><Icon name="lang" /> {lang} <Icon name="down" /></span>
+                </span>
+                <div class="dropdown-content">
+                    <ul>
+                        <li><a href={getRelativeLocaleUrl('es', '/')}>Español</a></li>
+                        <li><a href={getRelativeLocaleUrl('en', '/')}>Ingles</a></li>
+                        <li><a href={getRelativeLocaleUrl('fr', '/')}>Frances</a></li>
+                    </ul>
+                </div>
+            </li>
+            <ThemeIcon />
+        </ul>
+    </nav>
+
+
+   
+
+</header>
+
+<div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+        <a href="index.html">EALEJANDROH</a>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+    
+    <div class="nav-links">
+        <a href="index.html">{index}</a>
+        <a href="about.html">{about}</a>
+        <a href="portfolio.html">{portfolio}</a>
+        <a href="gallery.html">{gallery}</a>
+        <a href="contact.html">{contact}</a>
+        <li class="dropdown">
+            <span class="dropbtn idioma">
+                <span><Icon name="lang" /> {lang} <Icon name="down" /></span>
+            </span>
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href={getRelativeLocaleUrl('es', '/')}>Español</a></li>
+                    <li><a href={getRelativeLocaleUrl('en', '/')}>Ingles</a></li>
+                    <li><a href={getRelativeLocaleUrl('fr', '/')}>Frances</a></li>
+                </ul>
+            </div>
+        </li>
+        <ThemeIcon />
+    </div>
+  </div>
+
+<style>
+.headerNav{
+    padding: 18px 0;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--with-container);
+    margin: 0px auto;
+}
+
+.headerNav__logo{
+    font-family: var(--font-family2);
+    font-weight: bold;
+}
+
+.headerNav__logo a{
+    color: var(--color-bg1-text2);
+    font-size: 1.2em;
+}
+
+.headerNav__nav ul{
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.headerNav__nav ul li{
+    margin-inline: 5px;
+}
+
+.headerNav__nav ul a, .idioma{
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: .3s all;
+    -o-transition: .3s all;
+    transition: .3s all;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.headerNav__nav ul a:hover{
+    color: var(--color-bg1-text1);
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-bg1);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content ul {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .headerNav a:not(:first-child) {display: none;}
+  .headerNav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+.nav {
+
+    padding: 18px 0;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--with-container);
+    margin: 0px auto;
+    position: relative;
+}
+
+.nav > .nav-header {
+  display: inline;
+  font-family: var(--font-family2);
+    font-weight: bold;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  
+  
+
+  color: var(--color-bg1-text2);
+    font-size: 1.2em;
+
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: var(--color-bg1-text1);
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+</style>

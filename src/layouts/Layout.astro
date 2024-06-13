@@ -1,0 +1,97 @@
+---
+import '@fontsource/roboto/100.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource-variable/roboto-condensed';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Edwin Alejandro Hurtado - {title}</title>
+		<meta name="theme-color" content="#066094"/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+:root {
+	--with-container: 1170px;
+	--font-family1: 'Roboto', sans-serif;
+	--font-family2: 'Roboto Condensed Variable', sans-serif;
+	--font-family3: 'Glegoo', serif;
+}
+
+:root, :root.light {
+	--color-bg1: #ffffff;
+	--color-bg1-text1: #444;
+	--color-bg1-text2: #066094;
+	--color-bg1-text3: #333;
+	--color-bg2: #066094;
+	--color-bg2-text1: #ffffff;
+	
+}
+
+:root.dark {
+	--color-bg1: #1b1b1b;
+	--color-bg1-text1: #cdcdcd;
+	--color-bg1-text2: #ffffff;
+	--color-bg1-text3: #ffffff;
+	--color-bg2: #4e4e4e;
+	--color-bg2-text1: #cdcdcd;
+}
+
+html {
+	color-scheme: dark light;
+}
+body{
+	font-family: var(--font-family1);
+	background: var(--color-bg1);
+	color: var(--color-bg1-text1);
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: var(--font-family2);
+}
+p {
+	font-family: var(--font-family1);
+	line-height: 22px;
+    font-size: 16px;
+    font-weight: 300;
+}
+ul{
+	padding-left: 0;
+	li {
+		list-style: none;
+	}
+}
+
+main {
+	margin: 40px auto;
+	width: var(--with-container);
+	max-width: calc(100% - 2rem);
+	font-size: 20px;
+	line-height: 1.6;
+	min-height: 40dvh;
+}
+
+</style>

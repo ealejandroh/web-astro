@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+<footer>
+    <p>Copyright: <span>2017</span></p>
+    <ul class="social">
+        <li><a href="https://www.facebook.com/ealejandroh/" target="_blank" title="Facebook" rel="noreferrer noopener"><Icon name="facebook" title='facebook ealejandroh' /></a></li>
+        <li><a href="https://www.twitter.com/ealejandroh/" target="_blank" title="Twitter" rel="noreferrer noopener"><Icon name="twitter" title='twitter ealejandroh'/></a></li>
+        <li><a href="https://www.linkedin.com/in/ealejandroh/" target="_blank" title="Linkedin" rel="noreferrer noopener"><Icon name="linkedin" title='linkedin ealejandroh'/></a></li>
+        <li><a href="https://www.instagram.com/ealejandroh/" target="_blank" title="Instagram" rel="noreferrer noopener"><Icon name="instagram" title='instagram ealejandroh'/></a></li>
+        <li><a href="skype:ealejandrohg" target="_blank" title="Skype"><Icon name="skype" title='skype ealejandroh'/></a></li>
+        <li><a href="https://github.com/ealejandroh" target="_blank" title="GitHub" rel="noreferrer noopener"><Icon name="github" title='github ealejandroh'/></a></li>
+        <li><a href="https://www.youtube.com/user/ealejandroh" target="_blank" title="youtube" rel="noreferrer noopener"><Icon name="youtube" title='youtube ealejandroh'/></a></li>
+    </ul>
+</footer>
+
+<style>
+footer{
+    display: flex;
+    justify-content: space-between;
+    width: var(--with-container);
+    margin: 0px auto;
+}
+.social{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    font-size: 20px;
+}
+a{
+    color: var(--color-bg1-text2);
+}
+p{
+    font-size: 13px;
+    margin-top: 20px;
+}
+</style>
