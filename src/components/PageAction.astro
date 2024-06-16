@@ -18,9 +18,21 @@ h2 {
     font-weight: bold;
     text-transform: uppercase;
     color: var(--color-bg2-text1);
+
+    visibility: visible;
+    animation-duration: 500ms;
+    animation-delay: 0.3s;
+    animation-name: fadeInDown;
+    animation-fill-mode: both;
 }
 p{
     color: var(--color-bg2-text1);
+
+    visibility: visible;
+    animation-duration: 500ms;
+    animation-delay: 0.5s;
+    animation-name: fadeInDown;
+    animation-fill-mode: both;
 }
 a{
     display: inline-block;
@@ -33,5 +45,27 @@ a{
     letter-spacing: 2px;
     text-transform: uppercase;
     border-radius: 0;
+
+    visibility: visible;
+    animation-duration: 500ms;
+    animation-delay: 0.7s;
+    animation-name: fadeInDown;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 </style>
