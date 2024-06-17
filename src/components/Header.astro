@@ -1,11 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components'
 import ThemeIcon from './ThemeIcon.astro'
-import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const { index, about, portfolio, gallery, contact, lang } = Astro.props;
 
-const pathnameFr = Astro.url.pathname.replace(Astro.currentLocale || '', 'fr');
+const pathnameFr = Astro.url.pathname.replace(Astro.currentLocale || '', 'fr')
 const pathnameEn = Astro.url.pathname.replace(Astro.currentLocale || '', 'en');
 const pathnameEs = Astro.url.pathname.replace(Astro.currentLocale || '', 'es');
 
@@ -14,7 +13,7 @@ const pathnameEs = Astro.url.pathname.replace(Astro.currentLocale || '', 'es');
   <div class="nav">
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
-        <a href="index.html">EALEJANDROH</a>
+        <a href={'/'+Astro.currentLocale}>EALEJANDROH</a>
     </div>
     <div class="nav-btn">
       <label for="nav-check">
@@ -25,11 +24,11 @@ const pathnameEs = Astro.url.pathname.replace(Astro.currentLocale || '', 'es');
     </div>
     
     <div class="nav-links">
-        <a href="index.html">{index}</a>
-        <a href="about.html">{about}</a>
-        <a href="portfolio.html">{portfolio}</a>
-        <a href="gallery.html">{gallery}</a>
-        <a href="contact.html">{contact}</a>
+        <a href={'/'+Astro.currentLocale}>{index}</a>
+        <a href={'/'+Astro.currentLocale+'/about'}>{about}</a>
+        <a href={'/'+Astro.currentLocale+'/portfolio'}>{portfolio}</a>
+        <a href={'/'+Astro.currentLocale+'/gallery'}>{gallery}</a>
+        <a href={'/'+Astro.currentLocale+'/contact'}>{contact}</a>
         <li class="dropdown">
             <span class="dropbtn idioma">
                 <Icon name="lang" /> {lang} <Icon name="down" />

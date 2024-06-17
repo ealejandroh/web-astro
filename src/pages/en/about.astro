@@ -4,81 +4,34 @@ import Header from "@components/HeaderEn.astro";
 import Footer from "@components/Footer.astro";
 import PageAction from "@components/PageActionEn.astro";
 import PageTitle from "@components/PageTitle.astro";
-import { Image } from "astro:assets";
-import meImage from "../../images/edwin-hurtado.jpg";
+import meImage from "@images/edwin-hurtado.jpg";
+import Col2ImgText from "@components/Col2ImgText.astro";
+
+const dataPage = {
+  title: "About me",
+  description: "",
+  keywords: "",
+}
+
+const dataAbout = {
+  imagen: meImage,
+  imagenTexto: "Imagen perfil Edwin Alejandro Hurtado",
+  title: "ABOUT ME",
+  text1: "Hi, I'm a Systems and Computing Engineer, specialized in Software Construction at the Universidad de los Andes. I am currently a Software Architect at SoftOne, which is a company founded in 2008, specialized in Internet-based solutions and focused on the financial sector.",
+  text2: "I have extensive experience as a software architect, in solutions based on the Java EE platform and business portals. Leader of multiple technological projects, applying good practices, tools and standards to achieve successful projects.",
+  text3: "My passion is entrepreneurship and software development, I like to try and be learning about new technologies and new ways of doing things."
+}
 ---
-<Layout title="Welcome to Astro.">
+<Layout {dataPage}>
 
   <Header />
 
-	<PageTitle />
-	
-	<main class="main">
-		<div class="bloque-imagen" >
-			<Image src={meImage} alt="Imagen perfil Edwin Alejandro Hurtado" width={550} sizes="(max-width: 900px) 400px, 900px"  class="imagen-perfil" loading="eager" decoding="async"/>
-		</div>
-		<div class="bloque-texto">
-			<h3 class="subtitle">ABOUT ME</h3>
-			<p  class="texto1">Hi, I'm a Systems and Computing Engineer, specialized in Software Construction at the Universidad de los Andes. I am currently a Software Architect at SoftOne, which is a company founded in 2008, specialized in Internet-based solutions and focused on the financial sector.</p>
-			<p class="texto1">I have extensive experience as a software architect, in solutions based on the Java EE platform and business portals. Leader of multiple technological projects, applying good practices, tools and standards to achieve successful projects.</p>
-			<p  class="texto1">My passion is entrepreneurship and software development, I like to try and be learning about new technologies and new ways of doing things.</p>
-		</div>
-	</main>
+	<PageTitle title={dataPage.title}/>
+
+  <Col2ImgText data={dataAbout}></Col2ImgText>
 
 	<PageAction />
 	
 	<Footer />
 
 </Layout>
-
-<style>
-  .main {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .bloque-imagen {
-    width: calc(50% - 20px);
-  }
-
-  .bloque-texto {
-    width: calc(50% - 20px);
-  }
-
-  .imagen-perfil {
-    width: 100%;
-    vertical-align: middle;
-  }
-
-  .subtitle {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    color: var(--color-bg1-text3);
-    font-family: var(--font-family2);
-  }
-
-  .texto1 {
-    color: #727272;
-    font-family: var(--font-family1);
-    line-height: 22px;
-    font-size: 16px;
-    font-weight: 300;
-  }
-
-  @media (width <= 800px) {
-    .main {
-      flex-direction: column;
-    }
-    .bloque-imagen {
-      width: 90%;
-    }
-    .bloque-texto {
-      width: 90%;
-    }
-  }
-</style>

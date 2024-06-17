@@ -4,13 +4,19 @@ import Header from '@components/HeaderEn.astro';
 import Footer from '@components/Footer.astro';
 import PageAction from '@components/PageActionEn.astro';
 import PageTitle from '@components/PageTitle.astro';
+
+const dataPage = {
+  title: "Home",
+  description: "",
+  keywords: "",
+}
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout {dataPage}>
 
 	<Header />
 
-	<PageTitle />
+	<PageTitle title={dataPage.title}/>
 	
 	<main>
 		<h1>Welcome to Index (en)</h1>

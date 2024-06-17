@@ -4,24 +4,35 @@ import Header from '@components/HeaderEs.astro';
 import Footer from '@components/Footer.astro';
 import PageAction from '@components/PageActionEs.astro';
 import PageTitle from '@components/PageTitle.astro';
+import meImage from "@images/edwin-hurtado.jpg";
+import Col2ImgText from '@components/Col2ImgText.astro';
+
+const dataPage = {
+  title: "Sobre mi",
+  description: "",
+  keywords: "",
+}
+
+const dataAbout = {
+  imagen: meImage,
+  imagenTexto: "Imagen perfil Edwin Alejandro Hurtado",
+  title: "ALGO SOBRE MI",
+  text1: "Hola, soy Ingeniero de Sistemas y Computación, especializado en Construcción de Software de la Universidad de los Andes. Actualmente soy Arquitecto de Software en SoftOne, la cual es una compañía fundada en el 2008, especializada en soluciones basas en Internet y enfocadas en el sector financiero.",
+  text2: "Tengo amplia experiencia como arquitecto de software, en soluciones basadas en plataforma Java EE y portales empresariales. Líder de múltiples proyectos tecnológicos, aplicando buenas prácticas, herramientas y estándares para lograr proyectos exitosos.",
+  text3: "Mi pasión es el emprendimiento y el desarrollo de software, me gusta probar y estar aprendiendo sobre nuevas tecnologías y nuevas formas de realizar las cosas."
+}
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout {dataPage}>
 
 	<Header />
 
-	<PageTitle />
+	<PageTitle title={dataPage.title}/>
 	
-	<main>
-		<h1>Welcome to About (es)</h1>
-	</main>
+	<Col2ImgText data={dataAbout}></Col2ImgText>
 
 	<PageAction />
 	
 	<Footer />
 
 </Layout>
-
-<style>
-	
-</style>
