@@ -17,9 +17,9 @@ const pathnameEs = Astro.url.pathname.replace(Astro.currentLocale || '', 'es');
     </div>
     <div class="nav-btn">
       <label for="nav-check">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="menu-mobile"></span>
+        <span class="menu-mobile"></span>
+        <span class="menu-mobile"></span>
       </label>
     </div>
     
@@ -29,7 +29,7 @@ const pathnameEs = Astro.url.pathname.replace(Astro.currentLocale || '', 'es');
         <a href={'/'+Astro.currentLocale+'/portfolio'}>{portfolio}</a>
         <a href={'/'+Astro.currentLocale+'/gallery'}>{gallery}</a>
         <a href={'/'+Astro.currentLocale+'/contact'}>{contact}</a>
-        <li class="dropdown">
+        <div class="dropdown">
             <span class="dropbtn idioma">
                 <Icon name="lang" /> {lang} <Icon name="down" />
             </span>
@@ -40,8 +40,10 @@ const pathnameEs = Astro.url.pathname.replace(Astro.currentLocale || '', 'es');
                     <li><a href={pathnameFr}>Frances</a></li>
                 </ul>
             </div>
-        </li>
-        <ThemeIcon />
+        </div>
+        <div class="modo">
+          <ThemeIcon />
+        </div>
     </div>
   </div>
 </header>
@@ -80,7 +82,7 @@ header{
   float: right;
 }
 
-.nav-links a {
+.nav-links a, .modo {
   display: inline-block;
   padding: 2px 10px 2px 10px;
   text-decoration: none;
@@ -121,26 +123,27 @@ header{
     padding: 13px;
   }
   .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: var(--color-bg1-text1);
+    background-color: var(--color-bg1-sombra);
   }
-  .nav > .nav-btn > label > span {
+  .menu-mobile {
     display: block;
     width: 25px;
     height: 10px;
-    border-top: 2px solid #eee;
+    border-top: 2px solid var(--color-bg1-text1);
   }
+
   .nav > .nav-links {
     position: absolute;
     display: block;
     width: 100%;
-    background-color: var(--color-bg1-text1);
+    background-color: var(--color-bg1-sombra);
     height: 0px;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
     top: 50px;
     left: 0px;
   }
-  .nav > .nav-links > a, .idioma {
+  .nav > .nav-links > a, .idioma, .modo {
     display: block;
     width: 100%;
     color: var(--color-bg1);

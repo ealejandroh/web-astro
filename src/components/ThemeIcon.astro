@@ -18,6 +18,13 @@
   .moon { fill: transparent; }
   :global(.dark) .sun { fill: transparent; }
   :global(.dark) .moon { fill: var(--color-bg1-text1); }
+
+  @media (width <= 800px) {
+    .sun { fill: var(--color-bg1); }
+    .moon { fill: transparent; }
+    :global(.dark) .sun { fill: transparent; }
+    :global(.dark) .moon { fill: var(--color-bg1); }
+  }
 </style>
 
 <script is:inline>
